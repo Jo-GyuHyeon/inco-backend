@@ -10,12 +10,11 @@ Intercomcis App에 Rest API 데이터를 제공합니다. 유저가 Spring Boot 
 - - - 
 ## Technologies
 
-* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Maven](https://maven.apache.org/)
 * [Spring Boot](http://projects.spring.io/spring-boot/)
 * [Spring Security](https://projects.spring.io/spring-security/)
 * [Mysql](https://www.mysql.com/)
 * [MyBatis](http://www.mybatis.org/mybatis-3/ko/index.html)
+* [Maven](https://maven.apache.org/)
 * [Travis CI](https://travis-ci.org/)
 * [Swagger UI](https://swagger.io/)
 
