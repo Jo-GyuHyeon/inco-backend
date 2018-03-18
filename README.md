@@ -21,8 +21,7 @@ Intercomcis App에 Rest API 데이터를 제공합니다. 유저가 Spring Boot 
 
 ## Configuration
 
-> Java8를 설치해야 합니다.
-> Spring Tool Suite(STS)를 사용하였습니다.
+> Java8, Spring Tool Suite(STS)를 사용하였습니다.
 
 
 ## Main building blocks
