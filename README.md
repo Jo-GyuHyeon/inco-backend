@@ -67,8 +67,8 @@ Use one of the several ways of running a Spring Boot application. Below are just
 
   
 ##### Travis CI
-Github 계정으로 Travis CI에 로그인을 하신뒤 Repository를 생성합니다.
-TravisCI는 상세한 CI 설정은 프로젝트에 존재하는 .travis.yml로 할수있습니다. 
+Github 계정으로 Travis CI에 로그인 후 Repository를 생성합니다.
+TravisCI는 상세한 CI 설정은 프로젝트에 존재하는 .travis.yml로 할 수 있습니다. 
 프로젝트에 .travis.yml을 생성후 아래 코드를 추가합니다.
 ```
 language: java 
