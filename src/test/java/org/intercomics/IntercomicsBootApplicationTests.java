@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DuctoonBootApplicationTests {
+public class IntercomicsBootApplicationTests {
 
 	@Autowired
 	private DataSource ds;

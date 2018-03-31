@@ -21,7 +21,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @SpringBootApplication
 @MapperScan(value= {"org.intercomics.mapper"})
 @PropertySource(value = { "classpath:application.properties",  "classpath:${jdbc.config}","classpath:${jwt.config}","classpath:${notification.config}" })
-public class DucktoonServerApplication {
+public class IntercomicsServerApplication {
 	
 	@Autowired
 	ApplicationContext context;
@@ -66,6 +66,6 @@ public class DucktoonServerApplication {
 
 	
 	public static void main(String[] args) {
-		SpringApplication.run(DucktoonServerApplication.class, args);
+		SpringApplication.run(IntercomicsServerApplication.class, args);
 	}
 }
