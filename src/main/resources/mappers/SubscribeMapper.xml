@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="OrderbyNew"></include>
 		<include refid="perScroll"></include>
 	</select>
-	
+
 	<select id="subscibeLastNum" resultType="int">
 		<include refid="countWebtoon"></include>
 		where
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="timestampSubscibe" resultType="java.sql.Timestamp">
-	<include refid="timestampWebtoon"></include>
+		<include refid="timestampWebtoon"></include>
 		where
 		<include refid="userFilter"></include>
 		<include refid="OrderbyNewTimestamp"></include>
@@ -35,7 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		natural join day
 		where day Like '%'
 		)subscribe
-		natural join webtoon
+		natural join
+		webtoon
 		natural join platform
 		natural join writer
 		natural join
@@ -53,7 +54,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		join day
 		where day Like '%'
 		)subscribe
-		natural join webtoon
+		natural join
+		webtoon
 		natural join platform
 		natural join writer
 		natural join
@@ -82,8 +84,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 
 	</sql>
-	
-		<sql id="countWebtoon">
+
+	<sql id="countWebtoon">
 	<![CDATA[  
 	   select count(*) from
 		(SELECT * from
@@ -100,7 +102,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 
 	</sql>
-	
+
 	<sql id="timestampWebtoon">
 	<![CDATA[  
 	   select timestamp from
@@ -126,23 +128,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{item}
 		</foreach>
 	</sql>
-	
+
 	<sql id="dayFilter">
 		<if test="day!=null">
-			<choose>
-				<when test="!(day eq '0'.toString())">
-					day LIKE CONCAT('%',#{day},'%')
-				</when>
-				<when test="day eq '8'.toString()">
-					OR day LIKE '%9%'
-				</when>
-			</choose>
+			<if test="!(day eq '0'.toString())">
+				day LIKE CONCAT('%',#{day},'%')
+			</if>
+			<if test="day eq '8'.toString()">
+				OR day LIKE '%9%'
+			</if>
 		</if>
 		<if test="day == null">
 			day Like '%'
 		</if>
 	</sql>
-		
+
 
 	<sql id="isNew">
 		isNew = true
@@ -171,7 +171,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="OrderbyNew">
 		order by lastDate desc
 	</sql>
-	
+
 	<sql id="OrderbyNewTimestamp">
 		order by timestamp desc
 	</sql>

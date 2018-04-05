@@ -137,7 +137,6 @@ public class RestApiController {
 		try {
 			mywebtoonVO.setUserId(getUserId(request.getHeader("x-token")));
 			mywebtoonVO.setWebtoonId(webtoonId);
-			System.out.println(mywebtoonVO.toString());
 			subscribeRepository.addSubscribe(mywebtoonVO);
 			entity = new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
@@ -178,7 +177,7 @@ public class RestApiController {
 		Map<String, Object> map = new HashMap<>();
 		cri.setDay(dayFilter);
 		cri.setUserId(getUserId(request.getHeader("x-token")));
-		System.out.println(cri.toString());
+
 		try {
 			String beforTimestamp = String.valueOf(subscribeRepository.timestampSubscibe(cri));
 
@@ -335,7 +334,6 @@ public class RestApiController {
 			map.put("isLast", isLast);
 			map.put("timestamp", webtoonVO != null ? webtoonVO.getLastDate().toString() : "");
 			map.put("webtoons", webtoonList);
-			System.out.println(cri.toString());
 			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -350,7 +348,6 @@ public class RestApiController {
 	public ResponseEntity<List<WebtoonVO>> webToonOderbyGenreScrollList(SearchCriteria cri) {
 
 		System.out.println("/webtoon/{genre}/{scroll} -GET : " + sdf.format(date));
-		System.out.println(cri.toString());
 
 		ResponseEntity<List<WebtoonVO>> entity = null;
 		try {
