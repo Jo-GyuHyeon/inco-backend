@@ -46,7 +46,6 @@ public class OAuth2ClientConfig {
 	FilterRegistrationBean oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
 		FilterRegistrationBean registration = new FilterRegistrationBean();
 		registration.setFilter(filter);
-		// 스프링 사이트에 의하면 다른 필터보다 우선순위를 올리기위해 -100을 주었다고 나옵니다.
 		registration.setOrder(-100);
 		return registration;
 	}
@@ -55,7 +54,6 @@ public class OAuth2ClientConfig {
 	Filter ssoFilter() {
 		List<Filter> filters = new ArrayList<>();
 
-		// 네이버
 		OAuth2ClientAuthenticationProcessingFilter naver = new OAuth2ClientAuthenticationProcessingFilter(
 				naverRedirectUri);
 		naver.setRestTemplate(new OAuth2RestTemplate(naver(), oauth2ClientContext));
